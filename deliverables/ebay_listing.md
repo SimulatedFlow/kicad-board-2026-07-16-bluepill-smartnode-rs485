@@ -1,6 +1,6 @@
 # BluePill-SmartNode-RS485 - Leerplatine fuer STM32 Bluepill (handloetbar, THT-Bausatz-Basis)
 
-Handlötbares Träger- und Automationsboard für die STM32 Bluepill mit RS485-Bus, 4 robusten Relais-Ausgängen und Sensor-Schnittstellen.
+Handlötbares Träger- und Automationsboard für die STM32 Bluepill mit RS485-Bus, 2 robusten Relais-Ausgängen und Sensor-Schnittstellen.
 
 ## Highlights
 - Komplett von Hand loetbar (THT / grosse Bauteile, kein SMD-Feinpitch)
@@ -41,9 +41,9 @@ Bastler verdrahten Bluepills für Haus- und Gartensteuerung meist fliegend über
 - U2: Bluepill_R (x1)
 
 ## Lieferumfang
-- 1x Leiterplatte (PCBWay-Fertigung)
+- 1x unbestueckte Leiterplatte (Fertigung auf Bestellung via PCBWay)
 - Schaltplan als PDF + Bestueckungsliste (BOM als CSV) zum Download
 
-**Preisidee:** 24 EUR (unbestueckte Leerplatine)
+**Preis:** 24 EUR (unbestueckte Leerplatine, zzgl. Versand)
 
-Versand als Warensendung moeglich. Privatverkauf - keine Ruecknahme, keine Garantie.
+Fertigung auf Bestellung - Lieferzeit nach PCBWay-Produktion. Gewerblicher Verkauf durch Simulated Flow UG: gesetzliches Widerrufsrecht und Gewaehrleistung gemaess AGB/Impressum. Versand als versicherter Warenversand.

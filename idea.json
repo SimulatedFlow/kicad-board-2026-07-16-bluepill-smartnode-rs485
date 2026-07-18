@@ -1,6 +1,6 @@
 {
   "board_name": "BluePill-SmartNode-RS485",
-  "one_liner": "Handlötbares Träger- und Automationsboard für die STM32 Bluepill mit RS485-Bus, 4 robusten Relais-Ausgängen und Sensor-Schnittstellen.",
+  "one_liner": "Handlötbares Träger- und Automationsboard für die STM32 Bluepill mit RS485-Bus, 2 robusten Relais-Ausgängen und Sensor-Schnittstellen.",
   "market_gap": "Bastler verdrahten Bluepills für Haus- und Gartensteuerung meist fliegend über instabile Jumper-Kabel mit externen Modulen. Dieses Board vereint alle Kernfunktionen (Schalten, Bus, Sensorik, Stromversorgung) auf einer rein handlötbaren, störsicheren THT-Platine in Eurocard-Größe.",
   "confidence": "high",
   "price_eur": 24,
