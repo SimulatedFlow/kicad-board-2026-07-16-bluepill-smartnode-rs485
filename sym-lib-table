@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "smartnode")(type "KiCad")(uri "F:/KiCad Projects/BluepillBoards/_BoardIdeas/2026-07-16-bluepill-smartnode-rs485/smartnode.kicad_sym")(options "")(descr ""))
+)
