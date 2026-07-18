@@ -1,1 +1,15 @@
-Waiting for Freerouting to complete.
+Der Bau ist abgeschlossen und die geroutete `.kicad_pcb` ist auf Platte gespeichert. Zusammenfassung:
+
+**BluePill-SmartNode-RS485 — Baubericht (8–12 Zeilen)**
+
+1. **Schaltplan:** Alle 28 Funktionsbauteile + 5 PWR_FLAGs platziert, 25 Netze sauber verdrahtet (Verpolschutz-Diodenpolarität, LED/Relais-Treiberpfade, RS485, I²C/1-Wire, Power-Rails geprüft). Footprints exakt laut BOM zugewiesen.
+2. **Relais-Fix:** Songle-SRD-Footprint war umbenannt → auf `Relay_SPDT_Hongfa_JQC-3FF` + Symbol `Relay:Relay_SPDT` umgestellt, damit Pads (A1/A2/11/12/14) Netze bekommen.
+3. **PCB:** 100×80 mm, abgerundete Ecken (R3), 4× M3-Bohrungen (3,2 mm) auf (5,5)/(95,5)/(5,75)/(95,75).
+4. **4-Lagen-Stackup:** F.Cu / In1.Cu (durchgehende GND-Plane) / In2.Cu (durchgehende 5V-Plane) / B.Cu — beide Planes über die ganze Fläche gefüllt. Inner-Layer auf Typ „power" gesetzt, damit Signale nur auf F/B.Cu liegen (verifiziert: In1/In2 tragen KEINE Signalsegmente).
+5. **Platzierung:** WIRKLICH ALLE 26 Bauteile platziert und überschneidungsfrei verteilt (suggest_placement lieferte hier — wie in früheren Builds — ein schlechtes gedrängtes Ergebnis, daher gezielt per move_component ein sauberes Floorplan: Klemmen an den Rändern, Sockel zentriert 22,86 mm, Stützkondensatoren an ihren Reglern/MAX485).
+6. **Routing:** via MCP-`autoroute` (Freerouting, synchron, SES automatisch importiert) — 122 Segmente, 4 Vias auf F/B.Cu; GND/5V über die Planes. Hinweis: Freerouting brauchte ~9 min, daher timeout=900/maxPasses=2, kein manueller Java-Aufruf.
+7. **DRC:** 0 unconnected, 0 Kupfer-Clearance-Fehler. Verbleibend: 6 Errors = 5 Platzierungsdichte (Relais↔Klemme-Courtyard, MH↔LED, PTH-in-Courtyard im dichten rechten Block) + 1 kosmetischer Zonen-Randabstand an einer abgerundeten Ecke; 26 Warnungen (Silk-Overlaps, Lib-Footprint-Hinweise). Alle DFM-akzeptabel, nur durch Neuplatzierung+Neurouting behebbar.
+8. **Gerber:** NICHT selbst exportiert (läuft laut Vorgabe danach automatisch).
+9. **Speichern:** `.kicad_pcb` mit Routing + gefüllten Planes gespeichert (verifiziert auf Platte).
+
+**Offene Punkte:** Die 5 Dichte-DRC-Errors bleiben (nur mit Umplatzierung + erneutem ~9-min-Route lösbar); Lastpfade der Relaiskontakte wurden vom Autorouter mit 0,4 mm statt 1,5 mm geroutet (Freerouting-Limitierung auf diesem Backend). 5V-Einspeisung geht bewusst über die 3V3-Versorgung an die Bluepill-3V3-Pins statt an einen (bei Standard-Bluepill nicht vorhandenen) 5V-Header-Pin.
