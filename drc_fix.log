@@ -1,0 +1,14 @@
+Fertig. Zusammenfassung des DRC-Fixes:
+
+**Start:** 5 DRC-Fehler (severity error) — 2× `courtyards_overlap`, 2× `pth_inside_courtyard`, 1× `npth_inside_courtyard` (+26 Warnungen).
+
+**Gezielt behoben (Platzierung/Routing maximal erhalten):**
+- **R_PULL1 ↔ U2** (0,21 mm Courtyard-Clip): R_PULL1 0,6 mm nach links (49,4/60) — Stubs bleiben im Pad, kein Reroute.
+- **MH2/LED1** (Bohrung in LED1-Courtyard): die netzlose Bohrung **MH2** 1,4 mm nach oben (95/3,6) statt der LED — dadurch **null** Routing-Eingriff.
+- **K2 ↔ J_REL1** (echter Courtyard-Overlap 1,9 mm + K2-Pads in J_REL1-Courtyard): K2 unangetastet, **J_REL1 2,1 mm nach unten** (71/74,1). Die REL1_NO-Schleife (y73,8), die dann pad3 kurzgeschlossen hätte, gelöscht und alle drei Klemmen-Netze (REL1_COM/NC/NO) lokal mit `route_trace` neu gezogen — REL1_NO führt jetzt unter dem neuen pad3 herum.
+
+**Werkzeug-Hürden:** `route_trace` funktioniert auf diesem Backend wieder; `delete_trace` warf zwischendurch den „SwigPyObject not iterable"-Fehler → per save→close→open bereinigt und fortgesetzt (UUIDs bleiben erhalten).
+
+**End-DRC:** **0 Fehler** (Ziel erreicht), 14 Warnungen (Silk-Clearance, MountingHole-Lib-Hinweis, 1 vorbestehender PB0-Dangling) — alle kosmetisch/DFM-akzeptabel. Nach jedem Schritt `refill_zones` + `save_project(force)`.
+
+**.kicad_pcb gespeichert:** Ja, auf Platte geschrieben (letzter erfolgreicher Save nach dem finalen Refill).

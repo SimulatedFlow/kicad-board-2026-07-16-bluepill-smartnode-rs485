@@ -1,83 +1,19 @@
 {
   "board": "F:\\KiCad Projects\\BluepillBoards\\_BoardIdeas\\2026-07-16-bluepill-smartnode-rs485\\BluePill-SmartNode-RS485.kicad_pcb",
-  "timestamp": "2026-07-18T16:53:13",
-  "total_violations": 32,
+  "timestamp": "2026-07-19T21:23:18",
+  "total_violations": 14,
   "violation_counts": {
-    "courtyards_overlap": 2,
-    "npth_inside_courtyard": 1,
-    "pth_inside_courtyard": 2,
-    "copper_edge_clearance": 1,
     "track_dangling": 1,
     "lib_footprint_issues": 4,
-    "silk_overlap": 10,
-    "silk_over_copper": 11
+    "silk_overlap": 3,
+    "silk_over_copper": 6
   },
   "severity_counts": {
-    "error": 6,
-    "warning": 26,
+    "error": 0,
+    "warning": 14,
     "info": 0
   },
   "violations": [
-    {
-      "type": "courtyards_overlap",
-      "severity": "error",
-      "message": "Courtyards overlap",
-      "location": {
-        "x": 62.86,
-        "y": 14.0,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "npth_inside_courtyard",
-      "severity": "error",
-      "message": "NPTH inside courtyard",
-      "location": {
-        "x": 95.0,
-        "y": 5.0,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "courtyards_overlap",
-      "severity": "error",
-      "message": "Courtyards overlap",
-      "location": {
-        "x": 72.0,
-        "y": 54.0,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "pth_inside_courtyard",
-      "severity": "error",
-      "message": "PTH inside courtyard",
-      "location": {
-        "x": 84.2,
-        "y": 66.0,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "pth_inside_courtyard",
-      "severity": "error",
-      "message": "PTH inside courtyard",
-      "location": {
-        "x": 72.0,
-        "y": 66.0,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "copper_edge_clearance",
-      "severity": "error",
-      "message": "Platinenkanten-Freiraum-Versto\u00df (Einschr\u00e4nkungen aus Platinenkonfiguration zum Rand Freiraum 0,5000 mm; tats\u00e4chlich 0,0000 mm)",
-      "location": {
-        "x": 3.0,
-        "y": 0.0,
-        "unit": "mm"
-      }
-    },
     {
       "type": "track_dangling",
       "severity": "warning",
@@ -114,7 +50,7 @@
       "message": "Footprint \"MountingHole_3.2mm\" nicht in Bibliothek \"MountingHole\" gefunden.",
       "location": {
         "x": 95.0,
-        "y": 5.0,
+        "y": 3.6,
         "unit": "mm"
       }
     },
@@ -153,78 +89,8 @@
       "severity": "warning",
       "message": "Silkscreen clearance",
       "location": {
-        "x": 68.0,
-        "y": 68.3,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance",
-      "location": {
-        "x": 76.08,
-        "y": 65.68,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance",
-      "location": {
-        "x": 75.9,
-        "y": 61.75,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance",
-      "location": {
-        "x": 68.34,
-        "y": 76.72,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance",
-      "location": {
-        "x": 68.34,
-        "y": 66.68,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance",
-      "location": {
         "x": 68.4,
         "y": 67.9,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance",
-      "location": {
-        "x": 83.82,
-        "y": 66.68,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance",
-      "location": {
-        "x": 93.27,
-        "y": 5.04,
         "unit": "mm"
       }
     },
@@ -273,36 +139,6 @@
       "severity": "warning",
       "message": "Silkscreen clipped by solder mask",
       "location": {
-        "x": 68.34,
-        "y": 66.68,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_over_copper",
-      "severity": "warning",
-      "message": "Silkscreen clipped by solder mask",
-      "location": {
-        "x": 68.34,
-        "y": 66.68,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_over_copper",
-      "severity": "warning",
-      "message": "Silkscreen clipped by solder mask",
-      "location": {
-        "x": 83.82,
-        "y": 66.68,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_over_copper",
-      "severity": "warning",
-      "message": "Silkscreen clipped by solder mask",
-      "location": {
         "x": 93.27,
         "y": 5.04,
         "unit": "mm"
@@ -314,27 +150,7 @@
       "message": "Silkscreen clipped by solder mask",
       "location": {
         "x": 95.0,
-        "y": 5.0,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_over_copper",
-      "severity": "warning",
-      "message": "Silkscreen clipped by solder mask",
-      "location": {
-        "x": 93.27,
-        "y": 9.0,
-        "unit": "mm"
-      }
-    },
-    {
-      "type": "silk_over_copper",
-      "severity": "warning",
-      "message": "Silkscreen clipped by solder mask",
-      "location": {
-        "x": 93.27,
-        "y": 9.0,
+        "y": 3.6,
         "unit": "mm"
       }
     }
