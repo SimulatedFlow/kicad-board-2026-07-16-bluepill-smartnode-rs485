@@ -1,14 +1,12 @@
-Fertig. Zusammenfassung des DRC-Fixes:
+Confirmed — every one of the 14 violations is severity **warning**; there are **zero errors**. No clearance, no unconnected/missing-connection, and no courtyard/PTH/NPTH-inside-courtyard violations exist on this board. This matches the memory record that this exact board was already driven to 0 errors on 2026-07-19.
 
-**Start:** 5 DRC-Fehler (severity error) — 2× `courtyards_overlap`, 2× `pth_inside_courtyard`, 1× `npth_inside_courtyard` (+26 Warnungen).
+Since the target (0 errors, warnings acceptable) is already met, there is no segment to re-route and no component to nudge — doing so would only risk disturbing the preserved placement/routing for no benefit. I made no modifications, so the on-disk `.kicad_pcb` is already the valid 0-error board.
 
-**Gezielt behoben (Platzierung/Routing maximal erhalten):**
-- **R_PULL1 ↔ U2** (0,21 mm Courtyard-Clip): R_PULL1 0,6 mm nach links (49,4/60) — Stubs bleiben im Pad, kein Reroute.
-- **MH2/LED1** (Bohrung in LED1-Courtyard): die netzlose Bohrung **MH2** 1,4 mm nach oben (95/3,6) statt der LED — dadurch **null** Routing-Eingriff.
-- **K2 ↔ J_REL1** (echter Courtyard-Overlap 1,9 mm + K2-Pads in J_REL1-Courtyard): K2 unangetastet, **J_REL1 2,1 mm nach unten** (71/74,1). Die REL1_NO-Schleife (y73,8), die dann pad3 kurzgeschlossen hätte, gelöscht und alle drei Klemmen-Netze (REL1_COM/NC/NO) lokal mit `route_trace` neu gezogen — REL1_NO führt jetzt unter dem neuen pad3 herum.
+## Zusammenfassung
 
-**Werkzeug-Hürden:** `route_trace` funktioniert auf diesem Backend wieder; `delete_trace` warf zwischendurch den „SwigPyObject not iterable"-Fehler → per save→close→open bereinigt und fortgesetzt (UUIDs bleiben erhalten).
-
-**End-DRC:** **0 Fehler** (Ziel erreicht), 14 Warnungen (Silk-Clearance, MountingHole-Lib-Hinweis, 1 vorbestehender PB0-Dangling) — alle kosmetisch/DFM-akzeptabel. Nach jedem Schritt `refill_zones` + `save_project(force)`.
-
-**.kicad_pcb gespeichert:** Ja, auf Platte geschrieben (letzter erfolgreicher Save nach dem finalen Refill).
+- **Start-DRC:** 14 Verstöße, davon **0 Fehler (severity error)**, 14 Warnungen.
+- **Fehlertypen:** ausschließlich Warnungen — 1× `track_dangling` (PB0-Stub bei 82.9/57.8, vorbestehend), 4× `lib_footprint_issues` (MountingHole-Lib-Nag), 3× `silk_overlap`, 6× `silk_over_copper`. Keine `clearance`, keine `unconnected`/`missing connection`, keine `courtyards_overlap`/`pth/npth_inside_courtyard`.
+- **Geänderte Bauteile/Tracks:** keine. Es gab keinen Error-Verstoß zu beheben; jeder gezielte Eingriff hätte nur die bestehende, bereits saubere Platzierung/Routing gefährdet.
+- **End-DRC:** unverändert 14 Verstöße = **0 Fehler**, 14 Warnungen → Ziel (0 Errors) bereits erfüllt; Warnungen sind laut Vorgabe akzeptabel.
+- **.kicad_pcb gespeichert:** ja — die Datei liegt unverändert und fehlerfrei (0 Errors) auf Platte; da keine Änderungen nötig waren, wurde nichts neu geschrieben (kein Risiko, das saubere Routing zu überschreiben).
+- Gerber/PDF/Render wurden wie gefordert **nicht** exportiert.
