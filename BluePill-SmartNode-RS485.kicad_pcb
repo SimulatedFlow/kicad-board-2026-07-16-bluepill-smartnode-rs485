@@ -11835,6 +11835,14 @@
 		(uuid "9ea71de7-2759-4b40-ba10-7ac758140038")
 	)
 	(segment
+		(start 8 27)
+		(end 8 37)
+		(width 0.4)
+		(layer "B.Cu")
+		(net "12V_IN")
+		(uuid "e45a9893-a3b3-44ae-9055-5f6d4d308112")
+	)
+	(segment
 		(start 12.8575 50.3175)
 		(end 10.54 48)
 		(width 0.4)
